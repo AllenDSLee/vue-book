@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">    
+    <my-component :init-count="1"></my-component>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    
+    Vue.component('my-component',{
+      props:['initCount'],
+      template:'<div>{{counter}}</div>',
+      data:function(){
+        return{
+          counter:this.initCount
+        }
+      }
+    });
+
+    var app = new Vue({
+      el:'#app'
+    });
+  </script>
+</body>
+</html>

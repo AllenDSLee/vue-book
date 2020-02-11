@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>Total:{{total}}</p>
+    <my-component @increase="handleGetTotal" @decrease="handleGetTotal"></my-component>    
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    
+    Vue.component('my-component',{
+      template:'<div><button @click="handleIncrease">+1</button><button @click="handleDecrease">-1</button></div>',
+      data:function(){
+        return{
+          counter:0
+        }
+      },
+      methods:{
+        handleIncrease:function(){
+          this.counter++;
+          this.$emit('increase',this.counter);
+        },
+        handleDecrease:function(){
+          this.counter--;
+          this.$emit('decrease',this.counter);
+        }
+      }
+    });
+
+    var app = new Vue({
+      el:'#app',
+      data:{
+        total:0
+      },
+      methods:{
+        handleGetTotal:function(value){
+          this.total = value;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
