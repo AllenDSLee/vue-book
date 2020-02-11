@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <my-component message="來自父組件的數據"></my-component>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    // props:來自父級
+    Vue.component('my-component',{
+      props:['message'],
+      template:'<div>{{message}}</div>'
+    });
+
+    var app = new Vue({
+      el:'#app'
+    });
+  </script>
+</body>
+</html>
