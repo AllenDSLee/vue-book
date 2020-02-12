@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{message}}
+    <component-a></component-a>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    var bus = new Vue();
+
+    Vue.component('component-a',{
+      template:'<button @click="handleEvent">傳遞事件</button>',
+      methods:{
+        handleEvent:function(){
+          bus.$emit('on-message','來自component-a的訊息');
+        }
+      }
+    });
+
+    var app = new Vue({
+      el:'#app',
+      data:function(){
+        return{
+          message:''
+        }
+      },
+      mounted:function(){
+        var _this = this;
+        bus.$on('on-message',function(msg){
+          _this.message=msg;
+        })
+      }
+    });
+
+  </script>
+</body>
+</html>

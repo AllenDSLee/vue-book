@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>Total:{{total}}</p>
+    <my-component v-model="total"></my-component>
+    <button @click="handleDecrease">-1</button>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    
+    Vue.component('my-component',{
+      props:['value'],
+      template:'<input :value="value" @input="updateValue">',
+      methods:{
+        updateValue:function(event){
+          this.counter++;
+          this.$emit('input',event.target.value);
+        }
+      }
+    });
+
+    var app = new Vue({
+      el:'#app',
+      data:{
+        total:0
+      },
+      methods:{
+        handleDecrease:function(){
+          this.total--;
+        }       
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <child-component>
+      <p>嵌入的內容</p>
+      <p>更多嵌入的內容</p>
+    </child-component>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    Vue.component('child-component',{
+      template:'\
+      <div>\
+        <slot>\
+          <p>如果父組件沒有插入內容,我將作為默認出現</p>\
+        </slot>\
+      <div>\
+      '
+    });
+
+    var app = new Vue({
+      el:'#app',
+      data:function(){
+        return{
+          message:'父組件內容'
+        }
+      }
+    });
+
+  </script>
+</body>
+</html>
