@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabs</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div id="app" v-cloak>
+    <tabs v-model="activeKey">
+      <pane label="Tab1" name="1">Tab 1 的內容</pane>
+      <pane label="Tab2" name="2">Tab 2 的內容</pane>
+      <pane label="Tab3" name="3">Tab 3 的內容</pane>
+    </tabs>  
+  </div>
+  <script src="vue.js"></script>
+  <script src="pane.js"></script>
+  <script src="tabs.js"></script>
+  <script>
+    var app = new Vue({
+      el:'#app',
+      data:{activeKey:"1"}
+    })
+  </script>
+</body>
+</html>
