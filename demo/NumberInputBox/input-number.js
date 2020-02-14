@@ -1,11 +1,12 @@
 function isValueNumber(value){
-  return true;
+  var reg = new RegExp('^[1-9]+\d*$');
+  return reg.test(value);
 }
 
 Vue.component('input-number',{
   template:'\
     <div class="input-number">\
-      <input type="text" :value="currentValue" @change="handleChange">\
+      <input type="text" :value="currentValue" @change="handleChange" @keyup.up="handleUp" @keyup.down="handleDown">\
       <button @click="handleDown" :disabled="currentValue <= min">-</button>\
       <button @click="handleUp" :disabled="currentValue >= max">+</button>\
     </div>\
@@ -22,6 +23,10 @@ Vue.component('input-number',{
     value:{
       type:Number,
       default:0
+    },
+    step:{
+      type:Number,
+      default:1
     }
   },
   data:function(){
@@ -41,11 +46,11 @@ Vue.component('input-number',{
     methods:{
       handleDown:function(){
         if(this.currentValue <= this.min) return;
-        this.currentValue -= 1;
+        this.currentValue -= this.step;
       },
       handleUp:function(){
         if(this.currentValue >= this.max) return;
-        this.currentValue += 1;
+        this.currentValue += this.step;
       },
       handleChange:function(event){
         var val = event.target.value.trim();
