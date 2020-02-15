@@ -49,7 +49,8 @@ Vue.component('tabs',{
       this.$emit('on-click',name);
     },
     getTabs(){
-      // 通過歷遍子組件, 得到所有的pane組件
+      // 通過歷遍子組件(this.$children-->陣列), 得到所有的pane組件
+      // vue的實例屬性$options:在data外面定義的屬性和方法通過$options可以獲取和調用
       return this.$children.filter(function(item){
         return item.$options.name === 'pane';
       });
