@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <a v-bind:href="url">點擊連結</a>
+    <img v-bind:src="imgUrl">
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    var app= new Vue({
+      el:'#app',
+      data:{
+        url:'https://tw.yahoo.com',
+        imgUrl:'https://s.yimg.com/cv/apiv2/TW/Anand/03077327/TL2_0219b.jpg'
+      }
+    });
+  </script>
+</body>
+</html>
