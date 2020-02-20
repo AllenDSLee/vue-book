@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css"> 
+  <title>Document</title>
+</head>
+<body>
+  <div id="app" v-cloak>
+    <ul>
+      <template v-for="book in books">
+        <li>書名：{{book.name}}</li>
+        <li>作者：{{book.author}}</li>
+      </template>
+    </ul>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    var app= new Vue({
+      el:'#app',
+      data:{
+        books:[
+          {
+            name:'<<Vue.js實戰>>',
+            author:'大頭'
+          },
+          {
+            name:'<<Javascript基礎>>',
+            author:'狗蛋'
+          },
+          {
+            name:'<<Javascript進階>>',
+            author:'雞頭'
+          }
+        ]     
+      }
+    });
+
+    app.books = app.books.filter(function(item){
+      return item.name.match(/Javascript/);
+    });
+
+  </script>
+</body>
+</html>

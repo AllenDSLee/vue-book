@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css"> 
+  <title>Document</title>
+</head>
+<body>
+  <div id="app" v-cloak>
+    點擊次數：{{counter}}
+    <button @click="handleClick()">+1</button>
+    <button @click="handleClick(10)">+10</button>    
+    <a href="https://tw.yahoo.com" @click="handleA('禁止打開',$event)">打開連結</a>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    var app= new Vue({
+      el:'#app',
+      data:{
+        counter:0  
+      },
+      methods:{
+        handleClick(count){
+        count = count || 1;
+        this.counter += count;
+        },
+        handleA:function(message,event){
+          event.preventDefault();
+          window.alert(message);
+        }
+      }
+    });
+
+  </script>
+</body>
+</html>
