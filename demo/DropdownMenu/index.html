@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app" v-cloak>
+    <div class="main" v-click-outside="handleClose">
+      <button @click="show=!show">點擊顯示下拉式選單</button>
+      <div class="dropdown" v-show="show">
+        <p>下拉框的內容, 點擊外面區域可以關閉</p>
+      </div>
+    </div>
+  </div>
+  <script src="vue.js"></script>
+  <script src="clickOutside.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
