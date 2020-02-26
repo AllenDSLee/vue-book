@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <input type="checkbox" v-model="checked" value="html" id="html">
+    <label for="html">HTML</label>    
+    <br>
+    <input type="checkbox" v-model="checked" value="js" id="js">
+    <label for="js">js</label>    
+    <br>
+    <input type="checkbox" v-model="checked" value="css" id="css">
+    <label for="css">css</label>
+    <br>
+    <p>{{checked}}</p>         
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    var app = new Vue({
+      el:'#app',
+      data:{
+        checked:[]
+      }
+    });
+  </script>
+</body>
+</html>
