@@ -9,6 +9,7 @@ Vue.directive('clickOutside',{
       }
     }
 
+    // vue 2.x 不允許使用this指向的變量(var _this = this)
     el.__vueClickOutside__ = documentHandler;
     document.addEventListener('click',documentHandler);
   },

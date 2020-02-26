@@ -8,6 +8,11 @@
 </head>
 <body>
   <div id="app" v-cloak>
+    <!-- 
+      html不分大小寫, 作法有2種
+      1.html及js使用的變量全統一使用小寫. 例如:html(clickoutside)對應js(clickoutside)
+      2.html使用"-"連接各個單字, js使用駱峰式寫法. 例如:html(click-outside)對應js(clickOutside)
+     -->
     <div class="main" v-click-outside="handleClose">
       <button @click="show=!show">點擊顯示下拉式選單</button>
       <div class="dropdown" v-show="show">
