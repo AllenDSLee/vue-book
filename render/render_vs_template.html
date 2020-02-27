@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <ele></ele>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+
+    Vue.component('ele',{
+      // template:'<div \
+      //             id="element" \
+      //             :class="{show:show}" \
+      //             @click="handleClick"> \
+      //             文本內容 \
+      //           </div>',
+      data:function(){
+        return{
+          show:true
+        }
+      },
+      methods:{
+        handleClick:function(){
+          console.log('clicked');
+        }
+      },
+      render:function(createElement){
+        return createElement(
+          'div',
+          {
+            class:{
+              'show':this.show
+            },
+            attrs:{
+              id:'element'
+            },
+            on:{
+              click:this.handleClick
+            }
+          },
+          '文本內容'
+        );
+      }
+    });
+
+    var app = new Vue({
+      el:'#app'
+    })
+  </script>
+</body>
+</html>
