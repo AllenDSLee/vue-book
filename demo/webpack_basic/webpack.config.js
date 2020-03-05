@@ -1,5 +1,5 @@
-var path = require('path');
-var MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 var config = {
@@ -25,6 +25,14 @@ var config = {
         test: /\.js$/i,
         loader:'babel-loader',
         exclude:/node_modules/
+      },
+      {
+        test:/\.(gif|jpg|png)\??.*$/,
+        loader:'url-loader',
+        options: {
+          limit: 1024,
+          esModule: false
+        }
       }
     ]
   },

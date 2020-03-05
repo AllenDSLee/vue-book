@@ -2,6 +2,9 @@
   <div>
     <v-title title="Vue組件化"></v-title>
     <v-button @click="handleClick">點擊</v-button>
+    <p>
+      <img src="./images/image.png" style="width: 200px;">
+    </p>
   </div>
 </template>
 
