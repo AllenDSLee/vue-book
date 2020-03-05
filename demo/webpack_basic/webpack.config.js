@@ -14,16 +14,23 @@ var config = {
   module:{
     rules:[
       {
+        test:/\.vue$/i,
+        loader:'vue-loader',
+        options:{
+          loaders:{
+            css:MiniCssExtractPlugin.loader
+          }
+        }
+      },
+      {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      }    
-      // {
-      //   test:/\.css$/,
-      //   use:[
-      //     'style-loader',
-      //     'css-loader'
-      //   ]
-      // }
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
+      },
+      {
+        test: /\.js$/i,
+        loader:'babel-loader',
+        exclude:/node_modules/
+      }
     ]
   },
   plugins: [
