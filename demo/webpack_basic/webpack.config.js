@@ -1,6 +1,7 @@
 var path = require('path');
 // var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 var config = {
   entry:{
@@ -15,12 +16,12 @@ var config = {
     rules:[
       {
         test:/\.vue$/i,
-        loader:'vue-loader',
-        options:{
-          loaders:{
-            css:MiniCssExtractPlugin.loader
-          }
-        }
+        loader:'vue-loader'
+        // options:{
+        //   loaders:{
+        //     css:MiniCssExtractPlugin.loader
+        //   }
+        // }
       },
       {
         test: /\.css$/i,
@@ -35,6 +36,7 @@ var config = {
   },
   plugins: [
     new MiniCssExtractPlugin("main.css"),
+    new VueLoaderPlugin()
   ]
 }
 
