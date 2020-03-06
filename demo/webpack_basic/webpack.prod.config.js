@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const merge = require('webpack-merge');
 const webpackBaseConfig = require('./webpack.config.js')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 webpackBaseConfig.plugins = [];
 
@@ -15,7 +15,7 @@ module.exports = merge(webpackBaseConfig,{
   plugins:[
     new MiniCssExtractPlugin({
       filename:'[name].[hash].css',
-      allChunks:true
+      chunkFilename:'[name].[hash].css'
     }),
     new webpack.DefinePlugin({
       'process.env':{
@@ -29,19 +29,6 @@ module.exports = merge(webpackBaseConfig,{
     })
   ],
   optimization: {
-    minimizer: [
-             new UglifyJSPlugin({
-                 uglifyOptions: {
-                     output: {
-                         comments: false
-                     },
-                     compress: {
-                         warnings: false,
-                         drop_debugger: true,
-                         drop_console: true
-                     }
-                 }
-             }),
-         ]
-   }
+    minimizer: [new UglifyJsPlugin()],
+  }
 });

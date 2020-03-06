@@ -33,6 +33,20 @@ var config = {
           limit: 1024,
           esModule: false
         }
+      },
+      {
+        test: /\.ejs/,
+        use: ['ejs-loader'],
+      },
+      {
+        test: /\.html$/,
+        use: [{
+          loader: 'html-loader',
+          options: {
+            interpolate: true,
+            minimize: false
+          }
+        }]
       }
     ]
   },

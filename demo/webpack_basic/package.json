@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --open --config webpack.config.js",
-    "build": "webpack --progress --hide-modules --config webpack.prod.config.js --mode production"
+    "build": "webpack --progress --hide-modules --config webpack.prod.config.js"
   },
   "author": "Allen Lee",
   "license": "ISC",
@@ -38,6 +38,8 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "ejs-loader": "^0.3.5",
+    "html-loader": "^0.5.5",
     "vue": "^2.6.11",
     "webpack-cli": "^3.3.11"
   }
